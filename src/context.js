@@ -15,12 +15,21 @@ export default class RoomProvider extends Component {
 
     // getData
 
-    componentDidMount(){
-        let rooms = this.formatData(items)
+    componentDidMount() {
+        let rooms = this.formatData(items);
+        console.log(rooms)
     }
 
-    formatData(items){
-        let
+    formatData(items) {
+        let tempItems = items.map(item => {
+            let id = item.sys.id
+            let images = item.fields.images.map(image =>
+                image.fields.file.url)
+            
+            let room = {...item.fields, images, id};
+            return room
+        });
+        return tempItems
     }
 
 
