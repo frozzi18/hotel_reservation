@@ -42,6 +42,16 @@ export default function RoomFilter({rooms}) {
                     </select>
                 </div>
                 {/* end select type */}
+                {/* guest */}
+                <div className="form-group">
+                    <label htmlFor="capacity">
+                        Guests
+                    </label>
+                    <select name="capacity" id="capacity" value={type} className="form-control" onChange={handleChange}>
+                        {types}
+                    </select>
+                </div>
+                {/* end guest */}
             </form>
         </section>
     )
