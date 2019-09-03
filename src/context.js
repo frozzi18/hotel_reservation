@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-// import items from './data';
+
+// Data locally
+import items from './data';
+
+
+
 import Client from './Contentful';
 import { async } from 'q';
 
@@ -60,22 +65,25 @@ export default class RoomProvider extends Component {
     }
 
     componentDidMount() {
-        // let rooms = this.formatData(items);
-        // // console.log(rooms)
-        // let featuredRooms = rooms.filter(room => room.featured === true);
-        // let maxPrice = Math.max(...rooms.map(item => item.price))
-        // let maxSize = Math.max(...rooms.map(item => item.size))
-        // this.setState({
-        //     rooms,
-        //     featuredRooms,
-        //     sortedRooms: rooms,
-        //     loading: false,
-        //     price: maxPrice,
-        //     maxPrice,
-        //     maxSize
-        // })
+        let rooms = this.formatData(items);
+        // console.log(rooms)
+        let featuredRooms = rooms.filter(room => room.featured === true);
+        let maxPrice = Math.max(...rooms.map(item => item.price))
+        let maxSize = Math.max(...rooms.map(item => item.size))
+        this.setState({
+            rooms,
+            featuredRooms,
+            sortedRooms: rooms,
+            loading: false,
+            price: maxPrice,
+            maxPrice,
+            maxSize
+        })
 
-        this.getData()
+
+        // Data from contentful
+        
+        // this.getData()
     }
 
     formatData(items) {
